@@ -1,5 +1,10 @@
 package com.main.serviceimpl;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +23,38 @@ public class StudentServiceImpl  implements StudentService{
 		return studentRepo.save(std);
 	}
 
+	@Override
+	public List<Student> getAllStudents() {
+		return 	studentRepo.findAll();
+
+	}
+
+	@Override
+	public Optional<Student> getDetailsById(int id) {
+		
+		return studentRepo.findById(id); 
+		
+	}
+
+	@Override
+	public Student updateStudentDetails(int id, Student newStudent) {
+		
+		Student studentData=studentRepo.findById(id).orElse(null);
+		if (studentData !=null) {
+			return studentRepo.save(newStudent);
+		}
+		else {
+			  throw new RuntimeException("user Not found");
+
+		}
+		
+	}
+
+	
+	
+
+	
+	
+	
+	
 }

@@ -11,6 +11,7 @@ public interface StudentService {
 	public List<Student>  getAllStudents();
 	public  Optional<Student> getDetailsById(int id);
 	public Student updateStudentDetails(int id, Student std);
+	public void deleteStudentDetails(int id);
 	
 	
 }

@@ -27,9 +27,9 @@ public class Controller {
 	//add all details of students
 	
 	@PostMapping("/add")
-	public ResponseEntity<Student> addDetails(@RequestBody Student std) {
-		Student response =studentService.createStudent(std);
-		return ResponseEntity.ok(response);
+	public String addDetails(@RequestBody Student std) {
+		studentService.createStudent(std);
+		return "student added to database";
 		
 	}
 	

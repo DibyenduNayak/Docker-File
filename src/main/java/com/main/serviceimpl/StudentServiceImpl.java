@@ -18,6 +18,7 @@ public class StudentServiceImpl  implements StudentService{
 	@Autowired
   private StudentRepo studentRepo;
 	
+	
 	@Override
 	public Student createStudent(Student std) {
 		return studentRepo.save(std);
